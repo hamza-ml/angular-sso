@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "angular-sso"
+  "defaultProject": "angular-sso",
+  "cli": {
+    "analytics": "7416b837-a0bc-4f83-9fde-02d09839095a"
+  }
 }
