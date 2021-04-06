@@ -1,16 +1,17 @@
 # Angular SSO using OIDC & OAuth
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
-A simple demonstration of using OAuth 2 and OpenId Connect in Angular.
+1. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+2. A simple demonstration of using OAuth 2 and OpenId Connect in Angular.
+3. Login via Code Flow + PKCE (Proof Key for Code Exchange).
+
+## Identity Server
+1. [Identity Provider](https://idsvr4.azurewebsites.net) 
+2. Credentials: `Usernme: alice, Password: alice`.
 
 ## Dependencies
-1. Angular OAuth 2 & OIDC Client
+Angular OAuth 2 & OIDC Client
 
 ```npm i angular-oauth2-oidc```
-
-2. JwksValidationHandler 
-
-```npm i angular-oauth2-oidc-jwks --save```
 
 ## Development Server
 

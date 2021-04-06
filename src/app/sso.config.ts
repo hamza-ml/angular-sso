@@ -1,21 +1,18 @@
 /**
- *  
- * As we don't have any SSO server, we will be using referenced project's settings.
- * https://github.com/manfredsteyer/angular-oauth2-oidc
- * 
+ * Using referenced project's config settings (see readme).
  */ 
 
 
 import { AuthConfig } from 'angular-oauth2-oidc';
 
   export const authCodeFlowConfig: AuthConfig = {
-    // Url of the Identity Provider
+    // Identity Provider.
     issuer: 'https://idsvr4.azurewebsites.net',
 
-    // URL of the SPA to redirect the user to after login
+    // SPA URL to redirect after login.
     redirectUri: window.location.origin + '/index.html',
 
-    // The SPA's id. The SPA is registerd with this id at the auth-server
+    // SPA is registered with this id in the auth-server.
     // clientId: 'server.code',
     clientId: 'spa',
 
@@ -24,7 +21,6 @@ import { AuthConfig } from 'angular-oauth2-oidc';
     // and it might not enforce further best practices vital for security
     // such applications.
     // dummyClientSecret: 'secret',
-
     responseType: 'code',
 
     // set the scope for the permissions the client should request
@@ -34,4 +30,6 @@ import { AuthConfig } from 'angular-oauth2-oidc';
     scope: 'openid profile email offline_access api',
 
     showDebugInformation: true,
+
+    // logoutUrl: 'http:localhost:4200'
   };

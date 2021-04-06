@@ -1,6 +1,7 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
-import { JwksValidationHandler, OAuthService } from 'angular-oauth2-oidc';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 import { authCodeFlowConfig } from '../sso.config';
 
@@ -11,26 +12,23 @@ import { authCodeFlowConfig } from '../sso.config';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent {
-
-  constructor(private oAuthServie: OAuthService) {
+  constructor(private route: Router, private oAuthServie: OAuthService) {
     this.configureSSO();
   }
 
   private configureSSO(): void {
     this.oAuthServie.configure(authCodeFlowConfig);
-    this.oAuthServie.tokenValidationHandler = new JwksValidationHandler();
     this.oAuthServie.loadDiscoveryDocumentAndTryLogin();
 
     /** 
-     * Use this, when you want to redirect the user straight to the login page
-     * No need for login, logout methods when using this.
+     * Use this, when you want to redirect the user straight to the login page.
+     * No need for login and logout methods when using this.
      */
     // this.oAuthServie.loadDiscoveryDocumentAndLogin();
   }
 
-  public login_onClick(): void {
-    this.oAuthServie.initImplicitFlow();
-  }
+  public btnLogin_onClick = () => this.oAuthServie.initCodeFlow();
+  public btnDashboard_onClick = () => this.route.navigate(['/dashboard']);
 
   public get token(): object | null {
     return this.oAuthServie.getIdentityClaims() ?? null;

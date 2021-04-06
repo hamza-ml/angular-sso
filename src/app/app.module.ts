@@ -11,12 +11,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { HomeComponent } from './home/home.component';
 
+import { AuthGuard } from './auth.guard';
+import { HomeGuard } from './home/home.guard';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     DashboardComponent,
-    HomeComponent
   ],
   imports: [
     RouterModule,
@@ -25,7 +28,7 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     OAuthModule.forRoot(),
   ],
-  providers: [],
+  providers: [AuthGuard, HomeGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
